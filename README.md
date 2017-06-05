@@ -1,7 +1,7 @@
 # kmucs-bigdata-project-student8-winston
 
 
-external jar 주소
+external library 주소
 1. 단어감정점수 사전
 http://sentiwordnet.isti.cnr.it/
 2. stanford coreNLP(자연어처리)

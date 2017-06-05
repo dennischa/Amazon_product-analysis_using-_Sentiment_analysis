@@ -11,7 +11,8 @@ import edu.stanford.nlp.simple.*;
 public class SentiWordNet {
 
 	private Map<String, Double> dictionary;
-	//reference from http://sentiwordnet.isti.cnr.it/ demo code
+
+	// reference from http://sentiwordnet.isti.cnr.it/ demo code
 	public SentiWordNet(String pathToSWN) throws IOException {
 		// This is our main dictionary representation
 		if (pathToSWN.length() < 1) {
@@ -107,7 +108,6 @@ public class SentiWordNet {
 		return dictionary.get(word + "#" + pos);
 	}
 
-	
 	public double getSentiScore(Sentence sentence) {
 		double sentimentScore = 0;
 		for (int i = 0; i < sentence.length(); i++) {
