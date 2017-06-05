@@ -8,6 +8,7 @@ import java.util.Map;
 import java.lang.String;
 import edu.stanford.nlp.simple.*;
 
+
 public class SentiWordNet {
 
 private Map<String, Double> dictionary;
