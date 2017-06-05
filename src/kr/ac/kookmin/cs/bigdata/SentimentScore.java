@@ -33,7 +33,7 @@ public class SentimentScore extends Configured implements Tool {
 
     @Override
     public int run(String[] args) throws Exception {
-    	sentiWordNet = new SentiWordNet(args[3]);
+    	sentiWordNet = new SentiWordNet("SentiWordNet_3.0.0_20130122.txt");
     	 Path p1 = new Path(args[0]);
          Path p2 = new Path(args[1]);
          Path out = new Path(args[2]);
@@ -61,7 +61,7 @@ public class SentimentScore extends Configured implements Tool {
    
     public static class Map extends Mapper<LongWritable, Text, Text, Text> {
         private Text asin = new Text();
-        private Text tmp = new Text();
+        private Text text = new Text();
 
         @Override
         public void map(LongWritable key, Text value, Context context)
@@ -70,12 +70,13 @@ public class SentimentScore extends Configured implements Tool {
             JsonObject jsonObject = new JsonParser().parse(value.toString()).getAsJsonObject();
             asin.set(jsonObject.get("asin").toString());
             if(jsonObject.has("reviewText"))
-            	tmp.set(jsonObject.get("reviewText").toString());
+            	text.set(jsonObject.get("reviewText").toString());
             else if(jsonObject.has("salesRank"))
-            	tmp.set(jsonObject.getAsJsonObject("salesRank").get("Books").toString());
+            	text.set(jsonObject.getAsJsonObject("salesRank").get("Books").toString());
             else
-            	tmp.set("-1");
-            context.write(asin, tmp);
+            	text.set("-1");
+            
+            context.write(asin, text);
         	}
         	catch(ParseException e){
         		e.printStackTrace();
