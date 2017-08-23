@@ -6,6 +6,8 @@ external library 주소
 http://sentiwordnet.isti.cnr.it/
 2. stanford coreNLP(자연어처리)
 https://stanfordnlp.github.io/CoreNLP/
+3. slide link
+https://www.slideshare.net/kyungjuncha/amazon-product-analysis-using-sentiment-analysis
 
 에서 다운로드하여 사용하였습니다.
 
